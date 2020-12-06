@@ -3,6 +3,7 @@ const senderId = "632057595650"; // This is the `project_number` from the google
 
 if (!senderId) { console.error('Missing senderId'); return; }
 
+
 (async () => {
   // Register to FCM and get new Token
   const credentials = await register(senderId); // You should call register only once and then store the credentials somewhere
@@ -14,6 +15,7 @@ if (!senderId) { console.error('Missing senderId'); return; }
   const persistentIds = []; // get all previous persistentIds from somewhere (file, db, etc...)
   await listen({ ...credentials, persistentIds }, onNotification);
 })();
+
 
 // This function called on new notification
 function onNotification({ notification }) {
